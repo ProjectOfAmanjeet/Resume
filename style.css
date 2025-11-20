@@ -1,0 +1,116 @@
+:root {
+            --primary: #2c3e50;
+            --text: #333;
+            --bg-gray: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            background: #ccc;
+            /* Gray background for web view only */
+        }
+
+        .page {
+            background: white;
+            width: 210mm;
+            /* A4 Width */
+            min-height: 297mm;
+            border-radius: 10px;
+            /* A4 Height */
+            display: block;
+            margin: 20px auto;
+            padding: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            /* Ensures padding doesn't expand width */
+        }
+
+        /* --- GRID LAYOUT --- */
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            /* Sidebar | Main Content */
+            gap: 2rem;
+        }
+
+        /* --- STYLING EXAMPLES --- */
+        header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+
+        .sidebar {
+            font-size: 0.9rem;
+        }
+
+        .main-content {
+            font-size: 0.95rem;
+        }
+
+        .item {
+            margin-bottom: 1.5rem;
+        }
+
+        .item h3 {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* --- PRINT MAGIC STARTS HERE --- */
+        @media print {
+            body {
+                background: none;
+                -webkit-print-color-adjust: exact;
+                /* Forces colors to print */
+                print-color-adjust: exact;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: auto;
+                height: auto;
+            }
+
+            /* Hide web-only elements (like a "Print" button) */
+            .no-print {
+                display: none;
+            }
+
+            /* Prevent awkward page breaks inside paragraphs */
+            p,
+            li,
+            h2,
+            h3 {
+                break-inside: avoid;
+            }
+        }
+
+        a {
+            margin-left: 5px;
+        }
